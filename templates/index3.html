@@ -1,0 +1,64 @@
+$def with (categories, goods, products, carts)
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="\static\style.css">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="content"><p><a href="/">Интернет-магазин</a></p></div>
+        </div>
+        <div id="content">
+            <div id="leftcol">
+                <ul>
+                    $for link in categories:
+                    <li>
+                        <a href="/view?cat=$link.id">$link.name</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="main">
+                <div id="rightcol">
+                    <ul>
+                        $for product in products:
+                        <li>
+                            <img src="/static/$product.filename" alt="$product.name">
+                        </li>
+                        <li>
+                            $product.name
+                        </li>
+                        <li>
+                            Цена $product.price руб.
+                        </li>
+                        <br><br>
+                        <li>
+                            <a href="/newcart?good=$product.id">Купить</a>
+                        </li>
+                    </ul>
+                    <br>Корзина<br>
+                    <ul>
+                        $for cart in carts:
+                        <li>
+                            $cart.name $cart.count шт. $cart.price <a href="/del?cart=$cart.id">удалить</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="centercol">
+                    <ul>
+                        $for good in goods:
+                        <li>
+                            <a href="/view?cat=$good.category&good=$good.id">$good.name</a>     $good.price руб.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="content"><p>Ирина Потапкина</p></div>
+        </div>
+    </div>
+</body>

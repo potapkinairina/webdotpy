@@ -1,0 +1,40 @@
+$def with (categories)
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+<ul>
+    $for link in categories:
+    <li>
+        $link.name
+    </li>
+</ul>
+    <div id="wrap">
+        <div id="header">
+            <div class="content"><p>Интернет-магазин</p></div>
+        </div>
+        <div id="content">
+            <div id="leftcol">
+                <!-- <div class="content"><p>Категории</p></div> -->
+                <!-- $def with (categories)
+                <ul>
+                    $for link in categories:
+                    <li>
+                        $link.name
+                    </li>
+                </ul> -->
+            </div>
+            <div id="main">
+                <!-- <div class="content"><p>Контент</p></div> -->
+            </div>
+        </div>
+        <div id="footer">
+            <!-- <div class="content"><p>Подвал</p></div> -->
+        </div>
+    </div>
+</body>
+</html>
